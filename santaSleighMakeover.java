@@ -34,28 +34,30 @@ public class santaSleighMakeover {
         if (calculateSD(runners) > calculateSD(holders)) {
             int runner = 0;
             for (int i : runners) {
-                if (i > calculateAverage(runners)) {
+                if (i >= calculateAverage(runners)) {
                     runner = i;
                     break;
                 }
             }
-            for (int holder=holders.length-1; holder>=0; holder--) {
-                if ((holder + runner) <= budget){
-                    result1 = holder + runner;
+            for (int i=holders.length-1; i>=0; i--) {
+                if ((holders[i] + runner) <= budget){
+                    result1 = holders[i] + runner;
+                    break;
                 }            
             }
             
         } else {
             int holder = 0;
             for (int i : holders) {
-                if (i > calculateAverage(holders)) {
+                if (i >= calculateAverage(holders)) {
                     holder = i;
                     break;
                 }
             }
-            for (int runner=runners.length-1; runner>=0; runner--) {
-                if ((holder + runner) <= budget){
-                    result2 = holder + runner;
+            for (int i=runners.length-1; i>=0; i--) {
+                if ((runners[i] + holder) <= budget){
+                    result2 = runners[i] + holder;
+                    break;
                 }            
             }           
         }
@@ -72,9 +74,9 @@ public class santaSleighMakeover {
           
         int[] runners = {60, 80, 100};
         int[] holders = {17, 19, 21};
-        //System.out.println(getTotalSpent(runners, holders, 100));
+        int budget = 100;
         santaSleighMakeover sl = new santaSleighMakeover();
-        sl.getTotalSpent(runners, holders, 100);
+        sl.getTotalSpent(runners, holders, budget);
         
     }
 }
