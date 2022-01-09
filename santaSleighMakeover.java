@@ -1,6 +1,6 @@
 public class santaSleighMakeover {
 
-    public static int calculateAverage(int[] numArray) {
+    public int calculateAverage(int[] numArray) {
         
         int i = 0, sum = 0;
 
@@ -12,7 +12,7 @@ public class santaSleighMakeover {
         return (sum / numArray.length);
     }
 
-    public static double calculateSD(int[] numArray) {
+    public double calculateSD(int[] numArray) {
         
         float sum = 0, standardDeviation = 0;
 
@@ -28,7 +28,7 @@ public class santaSleighMakeover {
     }
 
     public int getTotalSpent(int[] runners, int[] holders, int budget) {
-        
+
         int result1 = 0, result2 = 0;
 
         if (calculateSD(runners) > calculateSD(holders)) {
@@ -72,6 +72,9 @@ public class santaSleighMakeover {
           
         int[] runners = {60, 80, 100};
         int[] holders = {17, 19, 21};
+        //System.out.println(getTotalSpent(runners, holders, 100));
+        santaSleighMakeover sl = new santaSleighMakeover();
+        sl.getTotalSpent(runners, holders, 100);
         
     }
 }
