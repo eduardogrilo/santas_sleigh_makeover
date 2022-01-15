@@ -12,54 +12,32 @@ public class santaSleighMakeover {
 
     public int getTotalSpent(int[] runners, int[] holders, int budget) {
 
-        int result1 = 0, result2 = 0, runner = 0, holdersLengh = holders.length;
+        int result1 = 0, runner = 0, holder = 0, runnersLengh = runners.length;
         while (result1 == 0) {
-            for (int i = runners.length - 1; i >= 0; i--) {
+            for (int i = runnersLengh - 1; i >= 0; i--) {
                 if (runners[i] >= budget) {
+                    result1 = 0;
                     break;
                 }
 
-                for (int j : runners) {
-                    if (runners[j] >= calculateAverage(runners)) {
-                        runner = runners[j];
+                for (int j : holders) {
+                    if (holders[j] >= calculateAverage(holders)) {
+                        holder = holders[j];
+                        break;
+                    }
+                }
+
+                for (int k : holders) {
+                    if ((holders[k] + runner) <= budget) {
+                        result1 = holders[k] + runner;
+                        break;
                     }
                 }
             }
-            holdersLengh--;
+            runnersLengh--;
         }
 
-        for (int i = holdersLengh - 1; i >= 0; i--) {
-            if ((holders[i] + runner) <= budget) {
-                result1 = holders[i] + runner;
-                break;
-            }
-        }
-    }
-
-    int holder = 0;for(
-    int i:holders)
-    {
-        if (i >= calculateAverage(holders)) {
-            holder = i;
-            break;
-        }
-    }for(
-    int i = runners.length - 1;i>=0;i--)
-    {
-        if ((runners[i] + holder) <= budget) {
-            result2 = runners[i] + holder;
-            break;
-        }
-    }
-
-    // if (result2 == 0 && result1 == 0) {
-    // return -1;
-    // } else if (result2 >= result1) {
-    // return result2;
-    // } else {
-    // return result1;
-    // }
-    return-1;
+        return -1;
     }
 
     // Driver Code
