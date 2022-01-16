@@ -19,22 +19,8 @@ public class santaSleighMakeover {
                     result1 = 0;
                     break;
                 }
-
-                for (int j : holders) {
-                    if (holders[j] >= calculateAverage(holders)) {
-                        holder = holders[j];
-                        break;
-                    }
-                }
-
-                for (int k : holders) {
-                    if ((holders[k] + runner) <= budget) {
-                        result1 = holders[k] + runner;
-                        break;
-                    }
-                }
+                runnersLengh--;
             }
-            runnersLengh--;
         }
 
         return -1;
@@ -48,6 +34,5 @@ public class santaSleighMakeover {
         int budget = 350;
         santaSleighMakeover myObject = new santaSleighMakeover();
         System.out.println("Total: " + myObject.getTotalSpent(runners, holders, budget));
-
     }
 }
