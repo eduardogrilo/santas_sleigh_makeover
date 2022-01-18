@@ -14,12 +14,21 @@ public class santaSleighMakeover {
 
         int result1 = 0, runner = 0, holder = 0, runnersLengh = runners.length;
         while (result1 == 0) {
-            for (int i = runnersLengh - 1; i >= 0; i--) {
-                if (runners[i] >= budget) {
-                    result1 = 0;
-                    break;
+            for (int i0 = runnersLengh - 1; i0 >= 0; i0--) {
+                if (runners[i0] <= budget) { // Check if the budget is enough
+                    if (runners[i0] >= calculateAverage(runners)){ // Check if the average value is higher than the budget
+                        runner = runners[i0];
+                    } else {
+                        for (int i1 = 0; i1 >= 0; i1++) {
+                            if (runners[i1] > calculateAverage(runners)) {
+                                runner = runners[i1];
+                            }
+                        }
+                    }
+
                 }
-                runnersLengh--;
+                result1 = 0;
+
             }
         }
 
